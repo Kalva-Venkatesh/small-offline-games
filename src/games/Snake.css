@@ -1,0 +1,133 @@
+.snake-game {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.snake-game h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background: #ecf0f1;
+  border-radius: 8px;
+}
+
+.game-info p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #34495e;
+  margin: 0;
+}
+
+.reset-button, .pause-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-left: 10px;
+}
+
+.reset-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.pause-button {
+  background-color: #f39c12;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.pause-button:hover {
+  background-color: #d35400;
+  transform: translateY(-2px);
+}
+
+.game-board {
+  position: relative;
+  margin: 0 auto;
+  background-color: #34495e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.food {
+  position: absolute;
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.snake-segment {
+  position: absolute;
+  background-color: #2ecc71;
+  border-radius: 3px;
+}
+
+.snake-head {
+  background-color: #27ae60;
+  border-radius: 5px;
+}
+
+.game-over {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #e74c3c;
+  border-radius: 10px;
+  color: white;
+}
+
+.game-over h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.game-over p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.play-again-button {
+  padding: 12px 25px;
+  background-color: white;
+  color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.play-again-button:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.instructions {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #7f8c8d;
+}
