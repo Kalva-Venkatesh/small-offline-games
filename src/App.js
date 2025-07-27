@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import GameSelector from './components/GameSelector';
-
 import RockPaperScissors from './games/RockPaperScissors';
 import NumberGuessing from './games/NumberGuessing';
 import MemoryCard from './games/MemoryCard';
@@ -8,11 +7,9 @@ import Snake from './games/Snake';
 import BrickBreaker from './games/BrickBreaker';
 import Pong from './games/Pong';
 import DiceRoll from './games/DiceRoll';
-
 import TicTacToe from './games/TicTacToe';
-import FlappyBird from './games/FlappyBird';
+import FlappyBird from './games/Flappy-Bird';
 import WhackAMole from './games/WhackAMole';
-
 import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
 import './App.css';
@@ -28,21 +25,21 @@ function App() {
   component: <TicTacToe />,
   icon: '❌⭕',
   color: '#FF6B6B'
-},
+    },
     {
   id: 'flappy-bird',
   name: 'Flappy Bird',
   component: <FlappyBird />,
   icon: '🐤',
   color: '#F9C74F'
-},
-{
+    },
+  {
   id: 'whack-a-mole',
   name: 'Whack-a-Mole',
   component: <WhackAMole />,
   icon: '🔨🐹',
   color: '#F94144'
-},
+    },
 
     {
       id: 'rock-paper-scissors',
