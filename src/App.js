@@ -12,6 +12,8 @@ import FlappyBird from './games/Flappy-Bird';
 import WhackAMole from './games/WhackAMole';
 import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
+import Hangman from './games/Hangman';
+
 import './App.css';
 
 function App() {
@@ -62,6 +64,14 @@ function App() {
       icon: '🧠',
       color: '#06D6A0'
     },
+    {
+  id: 'hangman',
+  name: 'Hangman',
+  component: <Hangman />,
+  icon: '🪢',
+  color: '#8E44AD'
+}
+,
     {
       id: 'snake',
       name: 'Snake',
