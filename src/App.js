@@ -9,6 +9,9 @@ import BrickBreaker from './games/BrickBreaker';
 import Pong from './games/Pong';
 import DiceRoll from './games/DiceRoll';
 
+import TicTacToe from './games/TicTacToe';
+import FlappyBird from './games/FlappyBird';
+import WhackAMole from './games/WhackAMole';
 
 import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
@@ -19,6 +22,28 @@ function App() {
 
   const games = [
     
+    {
+  id: 'tic-tac-toe',
+  name: 'Tic-Tac-Toe',
+  component: <TicTacToe />,
+  icon: '❌⭕',
+  color: '#FF6B6B'
+},
+    {
+  id: 'flappy-bird',
+  name: 'Flappy Bird',
+  component: <FlappyBird />,
+  icon: '🐤',
+  color: '#F9C74F'
+},
+{
+  id: 'whack-a-mole',
+  name: 'Whack-a-Mole',
+  component: <WhackAMole />,
+  icon: '🔨🐹',
+  color: '#F94144'
+},
+
     {
       id: 'rock-paper-scissors',
       name: 'Rock Paper Scissors',
