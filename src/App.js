@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GameSelector from './components/GameSelector';
-import TicTacToe from './games/TicTacToe';
+
 import RockPaperScissors from './games/RockPaperScissors';
 import NumberGuessing from './games/NumberGuessing';
 import MemoryCard from './games/MemoryCard';
@@ -8,8 +8,8 @@ import Snake from './games/Snake';
 import BrickBreaker from './games/BrickBreaker';
 import Pong from './games/Pong';
 import DiceRoll from './games/DiceRoll';
-import Hangman from './games/Hangman';
-import Minesweeper from './games/Minesweeper';
+
+
 import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
 import './App.css';
@@ -18,13 +18,7 @@ function App() {
   const [selectedGame, setSelectedGame] = useState(null);
 
   const games = [
-    {
-      id: 'tic-tac-toe',
-      name: 'Tic Tac Toe',
-      component: <TicTacToe />,
-      icon: '⭕❌',
-      color: '#FF6B6B'
-    },
+    
     {
       id: 'rock-paper-scissors',
       name: 'Rock Paper Scissors',
@@ -74,20 +68,8 @@ function App() {
       icon: '🎲',
       color: '#7209B7'
     },
-    {
-      id: 'hangman',
-      name: 'Hangman',
-      component: <Hangman />,
-      icon: '🪢',
-      color: '#3A0CA3'
-    },
-    {
-      id: 'minesweeper',
-      name: 'Minesweeper',
-      component: <Minesweeper />,
-      icon: '💣',
-      color: '#F72585'
-    },
+    
+    
     {
       id: '2048',
       name: '2048',
