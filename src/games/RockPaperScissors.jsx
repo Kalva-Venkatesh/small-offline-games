@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './RockPaperScissors.css';
 
 const RockPaperScissors = () => {
-  const choices = ['rock', 'paper', 'scissors'];
+  const choices = ['🪨', '📃', '✂️'];
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState('');
@@ -11,9 +11,9 @@ const RockPaperScissors = () => {
   const determineWinner = (player, computer) => {
     if (player === computer) return 'draw';
     if (
-      (player === 'rock' && computer === 'scissors') ||
-      (player === 'paper' && computer === 'rock') ||
-      (player === 'scissors' && computer === 'paper')
+      (player === '🪨' && computer === '✂️') ||
+      (player === '📃' && computer === '🪨') ||
+      (player === '✂️' && computer === '📃')
     ) {
       return 'player';
     }
@@ -29,9 +29,9 @@ const RockPaperScissors = () => {
     setResult(winner);
     
     if (winner === 'player') {
-      setScore({...score, player: score.player + 1});
+      setScore({ ...score, player: score.player + 1 });
     } else if (winner === 'computer') {
-      setScore({...score, computer: score.computer + 1});
+      setScore({ ...score, computer: score.computer + 1 });
     }
   };
 
@@ -53,7 +53,7 @@ const RockPaperScissors = () => {
           <button
             key={choice}
             onClick={() => handleChoice(choice)}
-            className={`choice ${choice}`}
+            className="choice"
           >
             {choice}
           </button>
@@ -64,7 +64,11 @@ const RockPaperScissors = () => {
           <p>You chose: {playerChoice}</p>
           <p>Computer chose: {computerChoice}</p>
           <p className="result">
-            {result === 'draw' ? "It's a draw!" : result === 'player' ? 'You win!' : 'Computer wins!'}
+            {result === 'draw'
+              ? "It's a draw!"
+              : result === 'player'
+              ? 'You win!'
+              : 'Computer wins!'}
           </p>
         </div>
       )}
