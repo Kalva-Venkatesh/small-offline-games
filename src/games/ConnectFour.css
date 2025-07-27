@@ -1,0 +1,140 @@
+.connect-four {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.connect-four h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+}
+
+.player-turn {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.player-turn.red {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.player-turn.yellow {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f39c12;
+}
+
+.winner {
+  font-size: 20px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background-color: #2980b9;
+}
+
+.board {
+  display: inline-flex;
+  background-color: #3498db;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.column:hover .cell.empty::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.column:hover .cell.empty.red::before {
+  background-color: #e74c3c;
+}
+
+.column:hover .cell.empty.yellow::before {
+  background-color: #f1c40f;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  border-radius: 50%;
+  position: relative;
+}
+
+.cell.empty {
+  background-color: white;
+}
+
+.cell.red {
+  background-color: #e74c3c;
+  animation: drop 0.3s ease-out;
+}
+
+.cell.yellow {
+  background-color: #f1c40f;
+  animation: drop 0.3s ease-out;
+}
+
+@keyframes drop {
+  from { transform: translateY(-300px); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .cell {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .column {
+    margin: 0 3px;
+  }
+  
+  .column:hover .cell.empty::before {
+    width: 20px;
+    height: 20px;
+  }
+}

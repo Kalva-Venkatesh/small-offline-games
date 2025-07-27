@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../components/Button';
 import './GameSelector.css';
 
 const GameSelector = ({ games, onSelect }) => {
@@ -8,13 +7,15 @@ const GameSelector = ({ games, onSelect }) => {
       <h2>Select a Game</h2>
       <div className="game-grid">
         {games.map((game) => (
-          <Button
+          <div 
             key={game.id}
+            className="game-card"
             onClick={() => onSelect(game.id)}
-            className="game-button"
+            style={{ backgroundColor: game.color }}
           >
-            {game.name}
-          </Button>
+            <div className="game-icon">{game.icon}</div>
+            <div className="game-name">{game.name}</div>
+          </div>
         ))}
       </div>
     </div>

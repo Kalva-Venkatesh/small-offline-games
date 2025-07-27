@@ -1,0 +1,171 @@
+.game-2048 {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-2048 h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #776e65;
+  background-color: #bbada0;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.new-game-btn {
+  padding: 10px 15px;
+  background-color: #8f7a66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.new-game-btn:hover {
+  background-color: #9f8b77;
+}
+
+.game-over, .game-won {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.game-over {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.game-won {
+  color: #2ecc71;
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.grid {
+  background-color: #bbada0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  background-color: #cdc1b4;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #776e65;
+}
+
+.cell:last-child {
+  margin-right: 0;
+}
+
+/* Tile colors */
+.cell.value-2 { background-color: #eee4da; }
+.cell.value-4 { background-color: #ede0c8; }
+.cell.value-8 { background-color: #f2b179; color: white; }
+.cell.value-16 { background-color: #f59563; color: white; }
+.cell.value-32 { background-color: #f67c5f; color: white; }
+.cell.value-64 { background-color: #f65e3b; color: white; }
+.cell.value-128 { background-color: #edcf72; color: white; font-size: 1.8rem; }
+.cell.value-256 { background-color: #edcc61; color: white; font-size: 1.8rem; }
+.cell.value-512 { background-color: #edc850; color: white; font-size: 1.8rem; }
+.cell.value-1024 { background-color: #edc53f; color: white; font-size: 1.5rem; }
+.cell.value-2048 { background-color: #edc22e; color: white; font-size: 1.5rem; }
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  background-color: #8f7a66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.controls button:hover {
+  background-color: #9f8b77;
+}
+
+.controls div {
+  display: flex;
+  gap: 10px;
+}
+
+.instructions {
+  color: #776e65;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .cell {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+  
+  .cell.value-128,
+  .cell.value-256,
+  .cell.value-512 {
+    font-size: 1.3rem;
+  }
+  
+  .cell.value-1024,
+  .cell.value-2048 {
+    font-size: 1.1rem;
+  }
+  
+  .controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}

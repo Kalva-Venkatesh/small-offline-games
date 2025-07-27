@@ -1,85 +1,60 @@
+/* Ensure the CSS file is properly linked */
 .tic-tac-toe {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
 }
 
-.tic-tac-toe h2 {
-  color: #2c3e50;
+h1 {
+  color: #333;
   margin-bottom: 20px;
-  text-align: center;
-  font-size: 28px;
 }
 
 .status {
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin: 20px 0;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #34495e;
-  text-align: center;
-  padding: 10px;
-  background: #ecf0f1;
-  border-radius: 8px;
 }
 
+/* FIXED: Force 3x3 Grid Layout */
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(3, 100px); /* 3 columns */
+  grid-template-rows: repeat(3, 100px);    /* 3 rows */
+  gap: 5px;                                /* Spacing between squares */
   margin-bottom: 20px;
-  background: #3498db;
-  padding: 10px;
-  border-radius: 10px;
 }
 
 .square {
-  background: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 48px;
-  font-weight: bold;
-  line-height: 100px;
+  width: 100px;
   height: 100px;
-  padding: 0;
-  text-align: center;
-  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: bold;
+  background: #fff;
+  border: 2px solid #333;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .square:hover {
-  background-color: #f0f8ff;
-  transform: translateY(-2px);
+  background: #f0f0f0;
 }
 
-.square:active {
-  transform: translateY(0);
-}
-
-.reset-button {
-  display: block;
-  margin: 0 auto;
-  padding: 12px 25px;
-  background-color: #e74c3c;
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #333;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s;
 }
 
-.reset-button:hover {
-  background-color: #c0392b;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.reset-button:active {
-  transform: translateY(0);
+.reset-btn:hover {
+  background: #555;
 }
