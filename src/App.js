@@ -14,35 +14,34 @@ import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
 import Hangman from './games/Hangman';
 
+
 import './App.css';
 
 function App() {
   const [selectedGame, setSelectedGame] = useState(null);
 
   const games = [
-    
     {
-  id: 'tic-tac-toe',
-  name: 'Tic-Tac-Toe',
-  component: <TicTacToe />,
-  icon: '❌⭕',
-  color: '#FF6B6B'
+      id: 'tic-tac-toe',
+      name: 'Tic-Tac-Toe',
+      component: <TicTacToe />,
+      icon: '❌⭕',
+      color: '#FF6B6B'
     },
     {
-  id: 'flappy-bird',
-  name: 'Flappy Bird',
-  component: <FlappyBird />,
-  icon: '🐤',
-  color: '#F9C74F'
+      id: 'flappy-bird',
+      name: 'Flappy Bird',
+      component: <FlappyBird />,
+      icon: '🐤',
+      color: '#F9C74F'
     },
-  {
-  id: 'whack-a-mole',
-  name: 'Whack-a-Mole',
-  component: <WhackAMole />,
-  icon: '🔨🐹',
-  color: '#F94144'
+    {
+      id: 'whack-a-mole',
+      name: 'Whack-a-Mole',
+      component: <WhackAMole />,
+      icon: '🔨🐹',
+      color: '#F94144'
     },
-
     {
       id: 'rock-paper-scissors',
       name: 'Rock Paper Scissors',
@@ -65,13 +64,12 @@ function App() {
       color: '#06D6A0'
     },
     {
-  id: 'hangman',
-  name: 'Hangman',
-  component: <Hangman />,
-  icon: '🪢',
-  color: '#8E44AD'
-}
-,
+      id: 'hangman',
+      name: 'Hangman',
+      component: <Hangman />,
+      icon: '🪢',
+      color: '#8E44AD'
+    },
     {
       id: 'snake',
       name: 'Snake',
@@ -100,8 +98,6 @@ function App() {
       icon: '🎲',
       color: '#7209B7'
     },
-    
-    
     {
       id: '2048',
       name: '2048',
@@ -115,7 +111,8 @@ function App() {
       component: <ConnectFour />,
       icon: '🔴🟡',
       color: '#3F37C9'
-    }
+    },
+
   ];
 
   const handleGameSelect = (gameId) => {
@@ -136,7 +133,7 @@ function App() {
           </button>
         )}
       </header>
-      
+
       <main className="app-main">
         {!selectedGame ? (
           <GameSelector games={games} onSelect={handleGameSelect} />
@@ -146,7 +143,7 @@ function App() {
           </div>
         )}
       </main>
-      
+
       <footer className="app-footer">
         <p>© {new Date().getFullYear()} Offline Small Games</p>
       </footer>

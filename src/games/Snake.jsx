@@ -31,35 +31,53 @@ const Snake = () => {
     return newFood;
   };
 
+  // --- ADDED: Central function to handle direction change ---
+  const handleDirectionChange = (newDirection) => {
+    if (gameOver) return;
+
+    switch (newDirection) {
+      case 'UP':
+        if (direction !== 'DOWN') setDirection('UP');
+        break;
+      case 'DOWN':
+        if (direction !== 'UP') setDirection('DOWN');
+        break;
+      case 'LEFT':
+        if (direction !== 'RIGHT') setDirection('LEFT');
+        break;
+      case 'RIGHT':
+        if (direction !== 'LEFT') setDirection('RIGHT');
+        break;
+      default:
+        break;
+    }
+  };
+
   // Handle keyboard input
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (gameOver) return;
+      if (e.key === ' ') {
+        setIsPaused(prev => !prev);
+        return;
+      }
       
-      switch (e.key) {
-        case 'ArrowUp':
-          if (direction !== 'DOWN') setDirection('UP');
-          break;
-        case 'ArrowDown':
-          if (direction !== 'UP') setDirection('DOWN');
-          break;
-        case 'ArrowLeft':
-          if (direction !== 'RIGHT') setDirection('LEFT');
-          break;
-        case 'ArrowRight':
-          if (direction !== 'LEFT') setDirection('RIGHT');
-          break;
-        case ' ':
-          setIsPaused(prev => !prev);
-          break;
-        default:
-          break;
+      // --- MODIFIED: Use the central direction handler ---
+      const keyMap = {
+        ArrowUp: 'UP',
+        ArrowDown: 'DOWN',
+        ArrowLeft: 'LEFT',
+        ArrowRight: 'RIGHT'
+      };
+      
+      const newDirection = keyMap[e.key];
+      if (newDirection) {
+        handleDirectionChange(newDirection);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [direction, gameOver]);
+  }, [direction, gameOver]); // Dependency array simplified
 
   // Game loop
   useEffect(() => {
@@ -71,20 +89,11 @@ const Snake = () => {
         
         // Move head based on direction
         switch (direction) {
-          case 'UP':
-            head.y -= 1;
-            break;
-          case 'DOWN':
-            head.y += 1;
-            break;
-          case 'LEFT':
-            head.x -= 1;
-            break;
-          case 'RIGHT':
-            head.x += 1;
-            break;
-          default:
-            break;
+          case 'UP': head.y -= 1; break;
+          case 'DOWN': head.y += 1; break;
+          case 'LEFT': head.x -= 1; break;
+          case 'RIGHT': head.x += 1; break;
+          default: break;
         }
         
         // Check for collisions
@@ -105,7 +114,7 @@ const Snake = () => {
           setScore(prev => prev + 10);
           
           // Increase speed every 50 points
-          if (score > 0 && score % 50 === 0) {
+          if ((score + 10) % 50 === 0 && score > 0) {
             setSpeed(prev => Math.max(prev - 10, 50));
           }
         } else {
@@ -119,7 +128,7 @@ const Snake = () => {
 
     gameLoopRef.current = setInterval(moveSnake, speed);
     return () => clearInterval(gameLoopRef.current);
-  }, [direction, food, gameOver, isPaused, score, speed]);
+  }, [snake, direction, food, gameOver, isPaused, score, speed]); // Added snake to dependencies
 
   const resetGame = () => {
     setSnake([{ x: 10, y: 10 }]);
@@ -133,11 +142,11 @@ const Snake = () => {
 
   return (
     <div className="snake-game">
-      <h2>Snake Game</h2>
+      <h2>Snake Game 🐍</h2>
       <div className="game-info">
         <p>Score: {score}</p>
         <button onClick={resetGame} className="reset-button">
-          Reset Game
+          Reset
         </button>
         <button onClick={() => setIsPaused(prev => !prev)} className="pause-button">
           {isPaused ? 'Resume' : 'Pause'}
@@ -188,8 +197,17 @@ const Snake = () => {
       )}
       
       <div className="instructions">
-        <p>Use arrow keys to move. Space to pause.</p>
+        <p>Use arrow keys or on-screen buttons to move. Space to pause.</p>
       </div>
+
+      {/* --- ADDED: Mobile control buttons --- */}
+      <div className="mobile-controls">
+        <button onClick={() => handleDirectionChange('UP')} className="control-button up">↑</button>
+        <button onClick={() => handleDirectionChange('LEFT')} className="control-button left">←</button>
+        <button onClick={() => handleDirectionChange('DOWN')} className="control-button down">↓</button>
+        <button onClick={() => handleDirectionChange('RIGHT')} className="control-button right">→</button>
+      </div>
+
     </div>
   );
 };
