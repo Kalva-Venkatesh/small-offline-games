@@ -13,7 +13,7 @@ import WhackAMole from './games/WhackAMole';
 import Game2048 from './games/Game2048';
 import ConnectFour from './games/ConnectFour';
 import Hangman from './games/Hangman';
-
+// Import the new game
 
 import './App.css';
 
@@ -21,6 +21,7 @@ function App() {
   const [selectedGame, setSelectedGame] = useState(null);
 
   const games = [
+
     {
       id: 'tic-tac-toe',
       name: 'Tic-Tac-Toe',
@@ -46,7 +47,7 @@ function App() {
       id: 'rock-paper-scissors',
       name: 'Rock Paper Scissors',
       component: <RockPaperScissors />,
-      icon: '✊✋✌️',
+      icon: 'R-P-S',
       color: '#4ECDC4'
     },
     {
@@ -112,7 +113,6 @@ function App() {
       icon: '🔴🟡',
       color: '#3F37C9'
     },
-
   ];
 
   const handleGameSelect = (gameId) => {
